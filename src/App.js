@@ -1,25 +1,22 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import loadGoogleMaps from './loadGoogleMaps'
+import CoverageMap from './coverageMap'
 
 class App extends Component {
+  componentWillMount(){
+    if ( !window.google ){
+      loadGoogleMaps("AIzaSyCAyqBJmg-cr4Fu5uA6UxEV44T_c4QjzW8", ['drawing', 'visualization']).then(resp => {
+        this.setState({ loaded: true })
+      })
+    }
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        {window.google && <CoverageMap />}
       </div>
     );
   }
