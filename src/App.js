@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+
 import loadGoogleMaps from './loadGoogleMaps'
 import Sidebar from './sidebar/sidebar';
 import MapContainer from './map/map';
+
+import store from './store'
 
 class App extends Component {
   componentWillMount(){
@@ -14,10 +18,12 @@ class App extends Component {
 
   render() {
     return (
-      <div className="app">
-        <Sidebar/>
-        {window.google && <MapContainer />}
-      </div>
+      <Provider store={store}>
+        <div className="app">
+          <Sidebar/>
+          {window.google && <MapContainer />}
+        </div>
+      </Provider>
     );
   }
 }
