@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import loadGoogleMaps from './loadGoogleMaps'
-import CoverageMap from './coverageMap'
+import Sidebar from './sidebar/sidebar';
+import MapContainer from './map/map';
 
 class App extends Component {
   componentWillMount(){
@@ -15,8 +14,9 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        {window.google && <CoverageMap />}
+      <div className="app">
+        <Sidebar/>
+        {window.google && <MapContainer />}
       </div>
     );
   }

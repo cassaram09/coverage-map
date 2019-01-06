@@ -1,3 +1,7 @@
+@import "./app.scss";
+@import "./sidebar/sidebar.scss";
+@import "./map/map.scss";
+
 body {
   margin: 0;
   padding: 0;
@@ -11,11 +15,6 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-
-#map-canvas {
-  height: 500px;
-  width: auto;
 }
 
 .delete-menu {
